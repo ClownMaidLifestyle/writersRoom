@@ -5,9 +5,10 @@ import useWebSocket from 'react-use-websocket';
 
 export default function ServerJoining() {
   //websocket
-  const ws_url = 'ws://127.0.0.1.2888';
+  const ws_url = 'ws://127.0.0.1:2888';
 
-  function JoinServer(event) {
+  const JoinServer = () => {
+    console.log("function running");
     useWebSocket(ws_url, {
       onOpen: () => {
         console.log('connection established with server');
@@ -43,7 +44,7 @@ export default function ServerJoining() {
       <form>
         <input placeholder='username' onChangeCapture={(event) => handleUserChange(event)}></input>
         <input placeholder='Server Code' onChangeCapture={(event) => handleCodeChange(event)}></input>
-        <button onClick={() => JoinServer()}>Join Party</button>
+        <button onClick={JoinServer()}>Join Party</button>
       </form>
     </div>
   )
