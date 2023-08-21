@@ -1,12 +1,26 @@
-const express = require("express");
-const cors = require("cors");
-const bp = require("body-parser");
-const axios = require("axios");
+const { WebSocket, WebSocketServer } = require('ws');
+const http = require('http');
+const uuidv4 = require('uuid').v4;
+
+//create websocket server
+const server = http.createServer();
+const webSocket = new WebSocketServer({ server });
+
+//list of active parties
+let parties = require("./parties.json")
 
 const PORT = 2888;
 
-const app = express();
-app.use(cors());
-app.use(bp.json());
+let clients = {}
 
-app.listen(PORT, () => console.log(`app is listening on port ${PORT}`));
+webSocket.on('connection', function(connection){
+    //generate unique ID
+    const userID = uuidv4();
+    console.log("new connection...");
+
+    // Store new connection
+    clients[userID] = connection;
+    console.log(`${userID} connected \n current clients: ${clients}`)
+});
+
+server.listen(PORT, () => console.log(`app is listening on port ${PORT}`));

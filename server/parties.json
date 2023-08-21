@@ -1,0 +1,6 @@
+{
+    "Test_Server": {
+        "members": ["Dummy"],
+        "code": "AAAAAA"
+    }
+}
