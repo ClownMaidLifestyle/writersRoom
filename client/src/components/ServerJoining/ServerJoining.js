@@ -1,20 +1,8 @@
 import React from 'react'
 import {useState} from "react";
-import axios from "axios";
-import useWebSocket from 'react-use-websocket';
-
+import Handshake from './Handshake';
 export default function ServerJoining() {
-  //websocket
-  const ws_url = 'ws://127.0.0.1:2888';
 
-  const JoinServer = () => {
-    console.log("function running");
-    useWebSocket(ws_url, {
-      onOpen: () => {
-        console.log('connection established with server');
-      }
-    })
-  };
 
   //handle join data
     const [serverRequest, setServerRequest] = useState({
@@ -36,7 +24,7 @@ export default function ServerJoining() {
     });
   }
 
-
+  Handshake()
 
   return (
     <div>
@@ -44,7 +32,6 @@ export default function ServerJoining() {
       <form>
         <input placeholder='username' onChangeCapture={(event) => handleUserChange(event)}></input>
         <input placeholder='Server Code' onChangeCapture={(event) => handleCodeChange(event)}></input>
-        <button onClick={JoinServer()}>Join Party</button>
       </form>
     </div>
   )

@@ -11,7 +11,7 @@ let parties = require("./parties.json")
 
 const PORT = 2888;
 
-let clients = {}
+let clients = {};
 
 webSocket.on('connection', function(connection){
     //generate unique ID
