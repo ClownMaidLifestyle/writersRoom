@@ -16,11 +16,11 @@ let clients = {};
 webSocket.on('connection', function(connection){
     //generate unique ID
     const userID = uuidv4();
-    console.log("new connection...");
-
     // Store new connection
     clients[userID] = connection;
-    console.log(`${userID} connected \n current clients: ${clients}`)
+    console.log(`${userID} connected`)
+
+    
 });
 
 server.listen(PORT, () => console.log(`app is listening on port ${PORT}`));

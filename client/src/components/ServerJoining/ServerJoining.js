@@ -10,6 +10,7 @@ export default function ServerJoining() {
       serverCode: ""
     })
 
+  //ignore - unimplemented
   function handleUserChange(event){
     setServerRequest({
       ...serverRequest,
@@ -17,6 +18,7 @@ export default function ServerJoining() {
     });
   }
 
+  //ignore - unimplemented
   function handleCodeChange(event){
     setServerRequest({
       ...serverRequest,
