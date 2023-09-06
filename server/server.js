@@ -18,8 +18,12 @@ webSocket.on('connection', function(connection){
     const userID = uuidv4();
     // Store new connection
     clients[userID] = connection;
-    console.log(`${userID} connected`)
-
+    const clientSendParties = {
+        type: "11",
+        data: Object.keys(parties)
+    };
+    send(clientSendParties)
+    console.log(`${userID} connected`);
     
 });
 

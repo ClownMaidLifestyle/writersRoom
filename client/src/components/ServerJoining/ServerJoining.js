@@ -30,7 +30,10 @@ export default function ServerJoining() {
 
   return (
     <div>
+      <div id="partyList">
         Party list here
+      </div>
+
       <form>
         <input placeholder='username' onChangeCapture={(event) => handleUserChange(event)}></input>
         <input placeholder='Server Code' onChangeCapture={(event) => handleCodeChange(event)}></input>
