@@ -10,6 +10,8 @@ export default function ServerJoining() {
       serverCode: ""
     })
 
+  //manage party list
+
   //ignore - unimplemented
   function handleUserChange(event){
     setServerRequest({
@@ -26,12 +28,14 @@ export default function ServerJoining() {
     });
   }
 
-  Handshake()
+  let partyList = Handshake().partyList;
+
+
 
   return (
     <div>
       <div id="partyList">
-        Party list here
+        {<p>No parties found</p> || <p>{partyList}</p>}
       </div>
 
       <form>
