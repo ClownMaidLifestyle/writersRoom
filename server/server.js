@@ -19,10 +19,11 @@ webSocket.on('connection', function(connection){
     // Store new connection
     clients[userID] = connection;
     const clientSendParties = {
-        type: "11",
-        data: Object.keys(parties)
+        0: "11",
+        1: Object.keys(parties),
+        length: 2
     };
-    send(clientSendParties)
+    connection.send(clientSendParties)
     console.log(`${userID} connected`);
     
 });
