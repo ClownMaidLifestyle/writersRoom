@@ -28,19 +28,23 @@ export default function ServerJoining() {
     });
   }
 
-  let partyList = Handshake().partyList;
+  async function generatePartyList(){
+    let partyList = Handshake();
+    partyList = partyList.partyList;
+    
+  }
 
 
 
   return (
     <div>
       <div id="partyList">
-        {<p>No parties found</p> || <p>{partyList}</p>}
       </div>
 
       <form>
         <input placeholder='username' onChangeCapture={(event) => handleUserChange(event)}></input>
         <input placeholder='Server Code' onChangeCapture={(event) => handleCodeChange(event)}></input>
+
       </form>
     </div>
   )

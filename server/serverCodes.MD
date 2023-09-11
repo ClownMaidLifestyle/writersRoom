@@ -2,7 +2,7 @@
 
 ---
 
-### 11 - Party list 
+### 11 - Party list
 #### Server-Client
 
 Updates the list of active parties 

@@ -10,7 +10,7 @@ export default function Handshake() {
     const ws_url = 'ws://127.0.0.1:2888';
 
 
-    useWebSocket(ws_url, {
+    const ws = useWebSocket(ws_url, {
         onOpen: (event) =>{
             console.log("connection established with server");
             console.log(event);
@@ -18,6 +18,8 @@ export default function Handshake() {
         },
         onMessage: (event) => {setServerData(HandleMessages(event))},
     })
+
+    ws.sendMessage("ping");
 
     return(
         serverData

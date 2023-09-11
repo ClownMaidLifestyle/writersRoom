@@ -18,14 +18,15 @@ webSocket.on('connection', function(connection){
     const userID = uuidv4();
     // Store new connection
     clients[userID] = connection;
-    const clientSendParties = {
-        0: "11",
-        1: Object.keys(parties),
-        length: 2
-    };
-    connection.send(clientSendParties)
+    const clientSendParties = Object.keys(parties)
+    connection.send(JSON.stringify(clientSendParties))
     console.log(`${userID} connected`);
     
 });
+
+webSocket.onMessage = (event) => {
+    console.log("pong");
+}
+
 
 server.listen(PORT, () => console.log(`app is listening on port ${PORT}`));

@@ -3,6 +3,7 @@ import React from 'react'
 
 export default function HandleMessages(event) {
 
+    console.log(event)
     let serverData = {
         partyList: "null"
     }
