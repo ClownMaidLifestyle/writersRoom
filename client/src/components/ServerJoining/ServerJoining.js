@@ -28,12 +28,13 @@ export default function ServerJoining() {
     });
   }
 
-  async function generatePartyList(){
     let partyList = Handshake();
     partyList = partyList.partyList;
     
-  }
 
+    for (let i = 0; i < partyList.length; i++){
+      displayList.push(partyList.i)
+    }
 
 
   return (
