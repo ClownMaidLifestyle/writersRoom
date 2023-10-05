@@ -18,8 +18,11 @@ webSocket.on('connection', function(connection){
     const userID = uuidv4();
     // Store new connection
     clients[userID] = connection;
-    const clientSendParties = Object.keys(parties)
-    connection.send(JSON.stringify(clientSendParties))
+    let clientSendParties = {
+        0: "11",
+        1: Object.keys(parties)
+    };    
+    connection.send(JSON.stringify(clientSendParties));
     console.log(`${userID} connected`);
 });
 
