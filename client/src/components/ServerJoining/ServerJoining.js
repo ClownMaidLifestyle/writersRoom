@@ -1,6 +1,6 @@
 import React from 'react'
 import {useState, useCallback} from "react";
-import Handshake from './Handshake';
+import Handshake from './Handshake.js';
 import PartyList from './partyList/partyList';
 export default function ServerJoining() {
 
@@ -31,6 +31,7 @@ export default function ServerJoining() {
 
   let handshake = Handshake();
   console.log("handshake = " + JSON.stringify(handshake));
+  
 
   return (
     <div>
