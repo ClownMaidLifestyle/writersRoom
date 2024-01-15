@@ -25,7 +25,7 @@ webSocket.on('connection', function(connection){
         1: Object.keys(parties)
     };    
     connection.send(JSON.stringify(clientSendParties));
-    console.log(`${userID} connected`);
+    console.log(`${userID} connected`); 
 
     connection.on('message', function (event){
         console.log(event);

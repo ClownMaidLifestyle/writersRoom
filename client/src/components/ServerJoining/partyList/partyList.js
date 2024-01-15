@@ -2,18 +2,13 @@ import React from 'react'
 
 export default function partyList({partyList}) {
     const renderList = (parties) => {
-        return parties.map(party => <li>{party}</li>)
+        return parties.map(party => <option value={party}>{party}</option>)
     }
 
 if (partyList){
     return (
-        <div id="partyList">
-            <h3>Available Parties:</h3>
-            <ul>
-                {renderList(partyList)}
-            </ul>
-        </div>
-      )
+        renderList(partyList)
+    )
 }
 else {
     return (

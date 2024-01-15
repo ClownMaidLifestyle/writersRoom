@@ -19,8 +19,6 @@ export default function Handshake() {
         onMessage: (event) => {setServerData(HandleMessages(event))},
     });
 
-    ws.sendMessage("websocketmessage");
-
 
     return(
         serverData
