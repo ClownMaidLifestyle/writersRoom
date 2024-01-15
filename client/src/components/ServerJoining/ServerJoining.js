@@ -1,6 +1,6 @@
 import React from 'react'
 import {useState, useCallback} from "react";
-import Handshake from './Handshake';
+import Handshake from './Handshake.js';
 import PartyList from './partyList/partyList';
 export default function ServerJoining() {
 
@@ -8,12 +8,12 @@ export default function ServerJoining() {
   //handle join data
     const [serverRequest, setServerRequest] = useState({
       username: "",
-      serverCode: ""
+      serverCode: "",
+      server: ""
     })
 
   //manage party list
 
-  //ignore - unimplemented
   function handleUserChange(event){
     setServerRequest({
       ...serverRequest, 
@@ -21,7 +21,6 @@ export default function ServerJoining() {
     });
   }
 
-  //ignore - unimplemented
   function handleCodeChange(event){
     setServerRequest({
       ...serverRequest,
@@ -29,16 +28,24 @@ export default function ServerJoining() {
     });
   }
 
+  function handleServerSelect(event){
+    setServerRequest({
+      ...serverRequest,
+      server: event.target.value
+    });
+  }
+
   let handshake = Handshake();
   console.log("handshake = " + JSON.stringify(handshake));
-
+  
   return (
     <div>
-      {handshake && <PartyList partyList={handshake.partyList}/>}
+      {handshake && <select onChangeCapture={(event) => handleServerSelect(event)}><PartyList id="select" partyList={handshake.partyList}/></select>}
       <form>
         <input placeholder='username' onChangeCapture={(event) => handleUserChange(event)}></input>
         <input placeholder='Server Code' onChangeCapture={(event) => handleCodeChange(event)}></input>
       </form>
+      <button>Let's gooooo</button>
       </div>
   )
 }

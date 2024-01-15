@@ -2,5 +2,8 @@
     "Test_Server": {
         "members": ["Dummy"],
         "code": "AAAAAA"
+    },
+    "Test_Server2": {
+        "members": ["Dummy"]
     }
 }

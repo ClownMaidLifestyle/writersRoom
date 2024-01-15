@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
 import useWebSocket from 'react-use-websocket';
 import HandleMessages from '../HandleMessages/HandleMessages'
 
@@ -17,9 +17,8 @@ export default function Handshake() {
             setProtocolSwitch(event);
         },
         onMessage: (event) => {setServerData(HandleMessages(event))},
-    })
+    });
 
-    ws.sendMessage("ping");
 
     return(
         serverData

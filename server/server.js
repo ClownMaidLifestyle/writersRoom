@@ -13,6 +13,8 @@ const PORT = 2888;
 
 let clients = {};
 
+
+
 webSocket.on('connection', function(connection){
     //generate unique ID
     const userID = uuidv4();
@@ -23,12 +25,14 @@ webSocket.on('connection', function(connection){
         1: Object.keys(parties)
     };    
     connection.send(JSON.stringify(clientSendParties));
-    console.log(`${userID} connected`);
+    console.log(`${userID} connected`); 
+
+    connection.on('message', function (event){
+        console.log(event);
+    });
 });
 
-webSocket.onMessage = (event) => {
-    console.log("pong");
-}
+
 
 
 server.listen(PORT, () => console.log(`app is listening on port ${PORT}`));
